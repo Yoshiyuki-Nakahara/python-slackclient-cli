@@ -1,0 +1,104 @@
+import os
+import argparse
+from slackclient import SlackClient
+
+env_var_key_prefix = "SLACK_API_"
+arg_required_string = "Required"
+
+# https://api.slack.com/methods/chat.postMessage
+# If there is an API that understands the specification of slack chat.postMessage this code will be very short and it will dynamically change with specification change
+# As this can be done in reality, If you want to make it immutable you need to specify a specific version
+slack_specific_api_response = [
+    {
+        "Argument": "token",
+        "Required": "Required",
+        "Description": "Authentication token. Requires scope: chat:write:bot or chat:write:user"
+    },
+    {
+        "Argument": "channel",
+        "Required": "Required",
+        "Description": "Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See below for more details."
+    },
+    {
+        "Argument": "text",
+        "Required": "Required",
+        "Description": "Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead."
+    },
+    {
+        "Argument": "parse",
+        "Required": "Optional",
+        "Description": "Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead.Change how messages are treated. Defaults to none. See below."
+    },
+    {
+        "Argument": "link_names",
+        "Required": "Optional",
+        "Description": "Find and link channel names and usernames."
+    },
+    {
+        "Argument": "attachments",
+        "Required": "Optional",
+        "Description": "Structured message attachments."
+    },
+    {
+        "Argument": "unfurl_links",
+        "Required": "Optional",
+        "Description": "Pass true to enable unfurling of primarily text-based content."
+    },
+    {
+        "Argument": "unfurl_media",
+        "Required": "Optional",
+        "Description": "Pass false to disable unfurling of media content."
+    },
+    {
+        "Argument": "username",
+        "Required": "Optional",
+        "Description": "Set your bot's user name. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
+    },
+    {
+        "Argument": "as_user",
+        "Required": "Optional",
+        "Description": "Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See authorship below."
+    },
+    {
+        "Argument": "icon_url",
+        "Required": "Optional",
+        "Description": "URL to an image to use as the icon for this message. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
+    },
+    {
+        "Argument": "icon_emoji",
+        "Required": "Optional",
+        "Description": "Emoji to use as the icon for this message. Overrides icon_url. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
+    },
+    {
+        "Argument": "thread_ts",
+        "Required": "Optional",
+        "Description": "Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead."
+    },
+    {
+        "Argument": "reply_broadcast",
+        "Required": "Optional",
+        "Description": "Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false."
+    }
+]
+# rename key name, specific_api_response -> argparse
+for v in slack_specific_api_response:
+    v["required"] = True if v.pop( "Required" ) == arg_required_string else False
+    v["help"] = v.pop( "Description" )
+
+def parse_program_args():
+    description = u'{0} [Args] [Options]\nDetailed options -h or --help'.format(__file__)
+    parser = argparse.ArgumentParser( description=description )
+    for v in slack_specific_api_response:
+        arg = v.pop( "Argument" )
+        # supplement by environment variable
+        env_var_key = env_var_key_prefix + arg.upper()
+        if os.environ.has_key( env_var_key ):
+            v["default"] = os.environ[env_var_key]
+            v["required"] = False
+        parser.add_argument( '--' + arg, action="store", dest=arg, **v )
+    return parser.parse_args()
+
+program_options = vars( parse_program_args() )
+slack_api_options = dict((k, v) for k, v in program_options.iteritems() if v)
+slack_client = SlackClient( slack_api_options["token"] )
+slack_client.api_call( "chat.postMessage", timeout = 1, **slack_api_options )
