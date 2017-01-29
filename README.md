@@ -1,5 +1,5 @@
 # python-slack-cli
-A command line interface for Slack 
+A command line interface for Slack
 
 # Requirement
 `$ pip install slackclient`
@@ -7,6 +7,10 @@ https://github.com/slackapi/python-slackclient
 
 # Reference
   https://api.slack.com/methods/chat.postMessage
+
+# Install
+    curl https://raw.githubusercontent.com/Yoshiyuki-Nakahara/python-slack-cli/master/slack-cli -o /path/to/slack-cli
+    chmod +x /path/to/slack-cli
 
 # Usage
     slack-cli [-h]
