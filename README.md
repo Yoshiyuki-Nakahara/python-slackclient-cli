@@ -1,23 +1,18 @@
-# python-slack-cli
+# python-slackclient-cli
 A command line interface for Slack
-
-# Requirement
-`$ pip install slackclient`
-https://github.com/slackapi/python-slackclient
 
 # Reference
   https://api.slack.com/methods
 
 # Install
-    curl https://raw.githubusercontent.com/Yoshiyuki-Nakahara/python-slack-cli/master/slack-cli -o /path/to/slack-cli
-    chmod +x /path/to/slack-cli
+  pip install slackclient-cli
 
 # Usage
-    slack-cli --help
-    usage: slack-cli [-h]
+    slackclient-cli --help
+    usage: slackclient-cli [-h]
       {reactions.remove,users.setPresence,users.getPresence,groups.setPurpose,usergroups.users.update,dnd.info,reminders.info,pins.list,mpim.open,channels.kick,reminders.add,channels.unarchive,team.profile.get,im.replies,channels.join,mpim.close,groups.setTopic,emoji.list,reactions.get,chat.update,groups.list,groups.archive,stars.list,mpim.list,im.history,auth.revoke,groups.open,mpim.mark,groups.info,im.close,im.list,files.comments.delete,team.accessLogs,usergroups.users.list,groups.kick,bots.info,groups.history,users.profile.get,groups.unarchive,channels.invite,groups.replies,files.sharedPublicURL,search.files,channels.rename,channels.list,im.open,team.info,channels.leave,chat.postMessage,users.list,groups.invite,team.billableInfo,groups.rename,files.comments.edit,groups.createChild,groups.create,reminders.delete,auth.test,oauth.access,users.setPhoto,pins.remove,im.mark,dnd.teamInfo,stars.remove,reminders.list,chat.delete,users.setActive,channels.replies,channels.history,files.upload,pins.add,groups.mark,channels.archive,mpim.history,search.all,users.info,usergroups.list,channels.info,files.comments.add,dnd.setSnooze,files.delete,files.list,channels.setTopic,files.info,stars.add,usergroups.disable,mpim.replies,team.integrationLogs,users.deletePhoto,reminders.complete,channels.setPurpose,dnd.endDnd,channels.mark,search.messages,channels.create,users.identity,groups.leave,usergroups.enable,dnd.endSnooze,users.profile.set,chat.meMessage,files.revokePublicURL,usergroups.update,reactions.add,reactions.list,usergroups.create,groups.close}
 
-    /bin/slack-cli [Args] [Options] Detailed options -h or --help
+    /bin/slackclient-cli [Args] [Options] Detailed options -h or --help
 
     positional arguments:
       {reactions.remove,users.setPresence,users.getPresence,groups.setPurpose,usergroups.users.update,dnd.info,reminders.info,pins.list,mpim.open,channels.kick,reminders.add,channels.unarchive,team.profile.get,im.replies,channels.join,mpim.close,groups.setTopic,emoji.list,reactions.get,chat.update,groups.list,groups.archive,stars.list,mpim.list,im.history,auth.revoke,groups.open,mpim.mark,groups.info,im.close,im.list,files.comments.delete,team.accessLogs,usergroups.users.list,groups.kick,bots.info,groups.history,users.profile.get,groups.unarchive,channels.invite,groups.replies,files.sharedPublicURL,search.files,channels.rename,channels.list,im.open,team.info,channels.leave,chat.postMessage,users.list,groups.invite,team.billableInfo,groups.rename,files.comments.edit,groups.createChild,groups.create,reminders.delete,auth.test,oauth.access,users.setPhoto,pins.remove,im.mark,dnd.teamInfo,stars.remove,reminders.list,chat.delete,users.setActive,channels.replies,channels.history,files.upload,pins.add,groups.mark,channels.archive,mpim.history,search.all,users.info,usergroups.list,channels.info,files.comments.add,dnd.setSnooze,files.delete,files.list,channels.setTopic,files.info,stars.add,usergroups.disable,mpim.replies,team.integrationLogs,users.deletePhoto,reminders.complete,channels.setPurpose,dnd.endDnd,channels.mark,search.messages,channels.create,users.identity,groups.leave,usergroups.enable,dnd.endSnooze,users.profile.set,chat.meMessage,files.revokePublicURL,usergroups.update,reactions.add,reactions.list,usergroups.create,groups.close
@@ -26,8 +21,8 @@ https://github.com/slackapi/python-slackclient
       -h, --help            show this help message and exit
 
 # SubCommand Usage(ex. chat.postMessage)
-    usage: slack-cli chat.postMessage -h
-    usage: slack-cli chat.postMessage [-h] [--quiet] --token TOKEN --channel
+    usage: slackclient-cli chat.postMessage -h
+    usage: slackclient-cli chat.postMessage [-h] [--quiet] --token TOKEN --channel
                                   CHANNEL --text TEXT [--parse PARSE]
                                   [--link_names LINK_NAMES]
                                   [--attachments ATTACHMENTS]
