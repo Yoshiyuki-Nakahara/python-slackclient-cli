@@ -6,7 +6,7 @@ A command line interface for Slack
 https://github.com/slackapi/python-slackclient
 
 # Reference
-  https://api.slack.com/methods/chat.postMessage
+  https://api.slack.com/methods
 
 # Install
     curl https://raw.githubusercontent.com/Yoshiyuki-Nakahara/python-slack-cli/master/slack-cli -o /path/to/slack-cli
@@ -14,18 +14,33 @@ https://github.com/slackapi/python-slackclient
 
 # Usage
     slack-cli --help
-    usage: slack-cli [-h] --token TOKEN --channel CHANNEL [--text TEXT]
-                 [--parse PARSE] [--link_names LINK_NAMES]
-                 [--attachments ATTACHMENTS] [--unfurl_links UNFURL_LINKS]
-                 [--unfurl_media UNFURL_MEDIA] [--username USERNAME]
-                 [--as_user AS_USER] [--icon_url ICON_URL]
-                 [--icon_emoji ICON_EMOJI] [--thread_ts THREAD_TS]
-                 [--reply_broadcast REPLY_BROADCAST]
+    usage: slack-cli [-h]
+                     {files.list,chat.meMessage,chat.postMessage,files.info,chat.update,files.sharedPublicURL,chat.delete,files.delete,files.revokePublicURL,files.upload}
 
     /bin/slack-cli [Args] [Options] Detailed options -h or --help
 
+    positional arguments:
+      {files.list,chat.meMessage,chat.postMessage,files.info,chat.update,files.sharedPublicURL,chat.delete,files.delete,files.revokePublicURL,files.upload}
+
     optional arguments:
       -h, --help            show this help message and exit
+
+# SubCommand Usage(ex. chat.postMessage)
+    usage: slack-cli chat.postMessage -h
+    usage: slack-cli chat.postMessage [-h] [--quiet] --token TOKEN --channel
+                                  CHANNEL --text TEXT [--parse PARSE]
+                                  [--link_names LINK_NAMES]
+                                  [--attachments ATTACHMENTS]
+                                  [--unfurl_links UNFURL_LINKS]
+                                  [--unfurl_media UNFURL_MEDIA]
+                                  [--username USERNAME] [--as_user AS_USER]
+                                  [--icon_url ICON_URL]
+                                  [--icon_emoji ICON_EMOJI]
+                                  [--thread_ts THREAD_TS]
+                                  [--reply_broadcast REPLY_BROADCAST]
+    optional arguments:
+      -h, --help            show this help message and exit
+      --quiet               don't print api call response
       --token TOKEN         Authentication token. Requires scope: chat:write:bot
                             or chat:write:user
       --channel CHANNEL     Channel, private group, or IM channel to send message
@@ -74,7 +89,6 @@ https://github.com/slackapi/python-slackclient
     # It can also be specified by environment variable
     export SLACK_API_TOKEN='xoxp-xxxxxxxxxxxxxxxxx'
     export SLACK_API_CHANNEL = '#some_channel'
-    export SLACK_API_TEXT = 'some message'
     export SLACK_API_{arg.upper()} = 'some value'
 
 # License

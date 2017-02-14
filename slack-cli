@@ -1,106 +1,347 @@
 #!/usr/bin/env python
 
-import os
-import argparse
+import os, argparse, urllib, json
+from datetime import datetime
 from slackclient import SlackClient
 
 env_var_key_prefix = "SLACK_API_"
 arg_required_string = "Required"
 
-# https://api.slack.com/methods/chat.postMessage
 # If there is an API that understands the specification of slack chat.postMessage this code will be very short and it will dynamically change with specification change
-# As this can be done in reality, If you want to make it immutable you need to specify a specific version
-slack_specific_api_response = [
-    {
-        "Argument": "token",
-        "Required": "Required",
-        "Description": "Authentication token. Requires scope: chat:write:bot or chat:write:user"
-    },
-    {
-        "Argument": "channel",
-        "Required": "Required",
-        "Description": "Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See below for more details."
-    },
-    {
-        "Argument": "text",
-        "Required": "Required",
-        "Description": "Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead."
-    },
-    {
-        "Argument": "parse",
-        "Required": "Optional",
-        "Description": "Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead.Change how messages are treated. Defaults to none. See below."
-    },
-    {
-        "Argument": "link_names",
-        "Required": "Optional",
-        "Description": "Find and link channel names and usernames."
-    },
-    {
-        "Argument": "attachments",
-        "Required": "Optional",
-        "Description": "Structured message attachments."
-    },
-    {
-        "Argument": "unfurl_links",
-        "Required": "Optional",
-        "Description": "Pass true to enable unfurling of primarily text-based content."
-    },
-    {
-        "Argument": "unfurl_media",
-        "Required": "Optional",
-        "Description": "Pass false to disable unfurling of media content."
-    },
-    {
-        "Argument": "username",
-        "Required": "Optional",
-        "Description": "Set your bot's user name. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
-    },
-    {
-        "Argument": "as_user",
-        "Required": "Optional",
-        "Description": "Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See authorship below."
-    },
-    {
-        "Argument": "icon_url",
-        "Required": "Optional",
-        "Description": "URL to an image to use as the icon for this message. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
-    },
-    {
-        "Argument": "icon_emoji",
-        "Required": "Optional",
-        "Description": "Emoji to use as the icon for this message. Overrides icon_url. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
-    },
-    {
-        "Argument": "thread_ts",
-        "Required": "Optional",
-        "Description": "Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead."
-    },
-    {
-        "Argument": "reply_broadcast",
-        "Required": "Optional",
-        "Description": "Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false."
-    }
-]
-# rename key name, specific_api_response -> argparse
-for v in slack_specific_api_response:
-    v["required"] = True if v.pop( "Required" ) == arg_required_string else False
-    v["help"] = v.pop( "Description" )
+slack_api_specific = {
+    "chat.delete" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: chat:write:bot or chat:write:user"
+        },
+        {
+            "Argument": "ts",
+            "Required": "Required",
+            "Description": "Timestamp of the message to be updated."
+        },
+        {
+            "Argument": "channel",
+            "Required": "Required",
+            "Description": "Channel containing the message to be updated."
+        },
+        {
+            "Argument": "as_user",
+            "Required": "Optional",
+            "Description": "Pass true to update the message as the authed user. Bot users in this context are considered authed users."
+        },
+    ],
+    "chat.meMessage" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token. Requires scope: chat:write:user"
+        },
+        {
+            "Argument": "channel",
+            "Required": "Required",
+            "Description": "Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name."
+        },
+        {
+            "Argument": "text",
+            "Required": "Required",
+            "Description": "Text of the message to send."
+        },
+    ],
+    "chat.postMessage": [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token. Requires scope: chat:write:bot or chat:write:user"
+        },
+        {
+            "Argument": "channel",
+            "Required": "Required",
+            "Description": "Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See below for more details."
+        },
+        {
+            "Argument": "text",
+            "Required": "Required",
+            "Description": "Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead."
+        },
+        {
+            "Argument": "parse",
+            "Required": "Optional",
+            "Description": "Text of the message to send. See below for an explanation of formatting. This field is usually required, unless you're providing only attachments instead.Change how messages are treated. Defaults to none. See below."
+        },
+        {
+            "Argument": "link_names",
+            "Required": "Optional",
+            "Description": "Find and link channel names and usernames."
+        },
+        {
+            "Argument": "attachments",
+            "Required": "Optional",
+            "Description": "Structured message attachments."
+        },
+        {
+            "Argument": "unfurl_links",
+            "Required": "Optional",
+            "Description": "Pass true to enable unfurling of primarily text-based content."
+        },
+        {
+            "Argument": "unfurl_media",
+            "Required": "Optional",
+            "Description": "Pass false to disable unfurling of media content."
+        },
+        {
+            "Argument": "username",
+            "Required": "Optional",
+            "Description": "Set your bot's user name. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
+        },
+        {
+            "Argument": "as_user",
+            "Required": "Optional",
+            "Description": "Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See authorship below."
+        },
+        {
+            "Argument": "icon_url",
+            "Required": "Optional",
+            "Description": "URL to an image to use as the icon for this message. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
+        },
+        {
+            "Argument": "icon_emoji",
+            "Required": "Optional",
+            "Description": "Emoji to use as the icon for this message. Overrides icon_url. Must be used in conjunction with as_user set to false, otherwise ignored. See authorship below."
+        },
+        {
+            "Argument": "thread_ts",
+            "Required": "Optional",
+            "Description": "Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead."
+        },
+        {
+            "Argument": "reply_broadcast",
+            "Required": "Optional",
+            "Description": "Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false."
+        },
+    ],
+    "chat.update" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: chat:write:bot or chat:write:user"
+        },
+        {
+            "Argument": "ts",
+            "Required": "Required",
+            "Description": "Timestamp of the message to be updated."
+        },
+        {
+            "Argument": "channel",
+            "Required": "Required",
+            "Description": "Channel containing the message to be updated."
+        },
+        {
+            "Argument": "text",
+            "Required": "Required",
+            "Description": "New text for the message, using the default formatting rules."
+        },
+        {
+            "Argument": "attachments",
+            "Required": "Optional",
+            "Description": "Structured message attachments."
+        },
+        {
+            "Argument": "parse",
+            "Required": "Optional",
+            "Description": "Change how messages are treated. Defaults to client, unlike chat.postMessage."
+        },
+        {
+            "Argument": "link_names",
+            "Required": "Optional",
+            "Description": "Find and link channel names and usernames. Defaults to none. This parameter should be used in conjunction with parse. To set link_names to 1, specify a parse mode of full."
+        },
+        {
+            "Argument": "as_user",
+            "Required": "Optional",
+            "Description": "Pass true to update the message as the authed user. Bot users in this context are considered authed users."
+        },
+    ],
+    "files.delete" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: files:write:user"
+        },
+        {
+            "Argument": "file",
+            "Required": "Required",
+            "Description": "ID of file to delete."
+        },
+    ],
+    "files.info" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: files:read"
+        },
+        {
+            "Argument": "file",
+            "Required": "Required",
+            "Description": "Specify a file by providing its ID."
+        },
+        {
+            "Argument": "count",
+            "Required": "Optional",
+            "Description": "Number of items to return per page. default=100"
+        },
+        {
+            "Argument": "page",
+            "Required": "Optional",
+            "Description": "Page number of results to return. default=1"
+        },
+    ],
+    "files.list" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: files:read"
+        },
+        {
+            "Argument": "users",
+            "Required": "Optional",
+            "Description": "Filter files created by a single user."
+        },
+        {
+            "Argument": "channel",
+            "Required": "Optional",
+            "Description": "Filter files appearing in a specific channel, indicated by its ID."
+        },
+        {
+            "Argument": "ts_from",
+            "Required": "Optional",
+            "Description": "Filter files created after this timestamp (inclusive). default=0"
+        },
+        {
+            "Argument": "ts_to",
+            "Required": "Optional",
+            "Description": "Filter files created before this timestamp (inclusive). default=now"
+        },
+        {
+            "Argument": "types",
+            "Required": "Optional",
+            "Description": "Filter files by type: /all - All files/spaces - Posts/snippets - Snippets/images - Image files/gdocs - Google docs/zips - Zip files/pdfs - PDF files/You can pass multiple values in the types argument, like types=spaces,snippets.The default value is all, which does not filter the list. default=all"
+        },
+        {
+            "Argument": "count",
+            "Required": "Optional",
+            "Description": "Number of items to return per page. default=100"
+        },
+        {
+            "Argument": "page",
+            "Required": "Optional",
+            "Description": "Page number of results to return. default=1"
+        },
+    ],
+    "files.revokePublicURL" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: files:write:user"
+        },
+        {
+            "Argument": "file",
+            "Required": "Required",
+            "Description": "File to revoke"
+        },
+    ],
+    "files.sharedPublicURL" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: files:write:user"
+        },
+        {
+            "Argument": "file",
+            "Required": "Required",
+            "Description": "File to share"
+        },
+    ],
+    "files.upload" : [
+        {
+            "Argument": "token",
+            "Required": "Required",
+            "Description": "Authentication token.Requires scope: files:write:user"
+        },
+        {
+            "Argument": "file",
+            "Required": "Optional",
+#            "Description": "File contents via multipart/form-data. If omitting this parameter, you must submit content."
+            "Description": "File name to be uploaded"
+        },
+        {
+            "Argument": "content",
+            "Required": "Optional",
+            "Description": "File contents via a POST variable. If omitting this parameter, you must provide a file."
+        },
+        {
+            "Argument": "filetype",
+            "Required": "Optional",
+            "Description": "A file type identifier."
+        },
+        {
+            "Argument": "filename",
+            "Required": "Optional",
+            "Description": "Filename of file"
+        },
+        {
+            "Argument": "title",
+            "Required": "Optional",
+            "Description": "Title of file."
+        },
+        {
+            "Argument": "initial_comment",
+            "Required": "Optional",
+            "Description": "Initial comment to add to file."
+        },
+        {
+            "Argument": "channels",
+            "Required": "Optional",
+            "Description": "Comma-separated list of channel names or IDs where the file will be shared."
+        },
+    ],
+}
 
 def parse_program_args():
-    description = u'{0} [Args] [Options]\nDetailed options -h or --help'.format(__file__)
-    parser = argparse.ArgumentParser( description=description )
-    for v in slack_specific_api_response:
-        arg = v.pop( "Argument" )
-        # supplement by environment variable
-        env_var_key = env_var_key_prefix + arg.upper()
-        if os.environ.has_key( env_var_key ):
-            v["default"] = os.environ[env_var_key]
-            v["required"] = False
-        parser.add_argument( '--' + arg, action="store", dest=arg, **v )
-    return parser.parse_args()
+    description = u"{0} [Args] [Options]\nDetailed options -h or --help".format(__file__)
+    parser = argparse.ArgumentParser(description=description)
+    sub_parsers = parser.add_subparsers(dest="method")
 
-program_options = vars( parse_program_args() )
-slack_api_options = dict((k, v) for k, v in program_options.iteritems() if v)
-slack_client = SlackClient( slack_api_options["token"] )
-slack_client.api_call( "chat.postMessage", timeout = 1, **slack_api_options )
+    # check method args
+    for k, v in slack_api_specific.iteritems():
+        method_parser = sub_parsers.add_parser(k)
+        method_parser.add_argument('--quiet', action='store_true', dest="is_quiet", default=False, help="don't print api call response")
+        for p in v:
+            # convert dictionary keyname for argparser use
+            p["required"] = True if p.pop("Required") == arg_required_string else False
+            p["help"] = p.pop("Description")
+
+            # supplement by environment variable
+            arg_name = p.pop("Argument")
+            env_var_key = env_var_key_prefix + arg_name.upper()
+            if os.environ.has_key(env_var_key):
+                p["default"] = os.environ[env_var_key]
+                p["required"] = False
+
+            method_parser.add_argument("--" + arg_name, action="store", dest=arg_name, **p)
+
+    method_args = vars(parser.parse_args())
+    method = method_args.pop("method")
+    is_quiet = method_args.pop("is_quiet")
+
+    if method_args.has_key("file") and method_args["file"] is not None:
+        method_args["file"] = open(method_args["file"], 'rb')
+
+    return is_quiet, method, method_args
+
+is_quiet, method, method_args = parse_program_args()
+slack_api_options = dict((k, v) for k, v in method_args.iteritems() if v)
+slack_client = SlackClient(slack_api_options["token"])
+res = slack_client.api_call(method, timeout = 1, **slack_api_options)
+if not is_quiet:
+    print json.dumps(res)
