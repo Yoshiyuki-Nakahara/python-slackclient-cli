@@ -15,12 +15,12 @@ https://github.com/slackapi/python-slackclient
 # Usage
     slack-cli --help
     usage: slack-cli [-h]
-                     {files.list,chat.meMessage,chat.postMessage,files.info,chat.update,files.sharedPublicURL,chat.delete,files.delete,files.revokePublicURL,files.upload}
+      {reactions.remove,users.setPresence,users.getPresence,groups.setPurpose,usergroups.users.update,dnd.info,reminders.info,pins.list,mpim.open,channels.kick,reminders.add,channels.unarchive,team.profile.get,im.replies,channels.join,mpim.close,groups.setTopic,emoji.list,reactions.get,chat.update,groups.list,groups.archive,stars.list,mpim.list,im.history,auth.revoke,groups.open,mpim.mark,groups.info,im.close,im.list,files.comments.delete,team.accessLogs,usergroups.users.list,groups.kick,bots.info,groups.history,users.profile.get,groups.unarchive,channels.invite,groups.replies,files.sharedPublicURL,search.files,channels.rename,channels.list,im.open,team.info,channels.leave,chat.postMessage,users.list,groups.invite,team.billableInfo,groups.rename,files.comments.edit,groups.createChild,groups.create,reminders.delete,auth.test,oauth.access,users.setPhoto,pins.remove,im.mark,dnd.teamInfo,stars.remove,reminders.list,chat.delete,users.setActive,channels.replies,channels.history,files.upload,pins.add,groups.mark,channels.archive,mpim.history,search.all,users.info,usergroups.list,channels.info,files.comments.add,dnd.setSnooze,files.delete,files.list,channels.setTopic,files.info,stars.add,usergroups.disable,mpim.replies,team.integrationLogs,users.deletePhoto,reminders.complete,channels.setPurpose,dnd.endDnd,channels.mark,search.messages,channels.create,users.identity,groups.leave,usergroups.enable,dnd.endSnooze,users.profile.set,chat.meMessage,files.revokePublicURL,usergroups.update,reactions.add,reactions.list,usergroups.create,groups.close}
 
     /bin/slack-cli [Args] [Options] Detailed options -h or --help
 
     positional arguments:
-      {files.list,chat.meMessage,chat.postMessage,files.info,chat.update,files.sharedPublicURL,chat.delete,files.delete,files.revokePublicURL,files.upload}
+      {reactions.remove,users.setPresence,users.getPresence,groups.setPurpose,usergroups.users.update,dnd.info,reminders.info,pins.list,mpim.open,channels.kick,reminders.add,channels.unarchive,team.profile.get,im.replies,channels.join,mpim.close,groups.setTopic,emoji.list,reactions.get,chat.update,groups.list,groups.archive,stars.list,mpim.list,im.history,auth.revoke,groups.open,mpim.mark,groups.info,im.close,im.list,files.comments.delete,team.accessLogs,usergroups.users.list,groups.kick,bots.info,groups.history,users.profile.get,groups.unarchive,channels.invite,groups.replies,files.sharedPublicURL,search.files,channels.rename,channels.list,im.open,team.info,channels.leave,chat.postMessage,users.list,groups.invite,team.billableInfo,groups.rename,files.comments.edit,groups.createChild,groups.create,reminders.delete,auth.test,oauth.access,users.setPhoto,pins.remove,im.mark,dnd.teamInfo,stars.remove,reminders.list,chat.delete,users.setActive,channels.replies,channels.history,files.upload,pins.add,groups.mark,channels.archive,mpim.history,search.all,users.info,usergroups.list,channels.info,files.comments.add,dnd.setSnooze,files.delete,files.list,channels.setTopic,files.info,stars.add,usergroups.disable,mpim.replies,team.integrationLogs,users.deletePhoto,reminders.complete,channels.setPurpose,dnd.endDnd,channels.mark,search.messages,channels.create,users.identity,groups.leave,usergroups.enable,dnd.endSnooze,users.profile.set,chat.meMessage,files.revokePublicURL,usergroups.update,reactions.add,reactions.list,usergroups.create,groups.close
 
     optional arguments:
       -h, --help            show this help message and exit
@@ -40,7 +40,7 @@ https://github.com/slackapi/python-slackclient
                                   [--reply_broadcast REPLY_BROADCAST]
     optional arguments:
       -h, --help            show this help message and exit
-      --quiet               don't print api call response
+      --quiet               don't print api response
       --token TOKEN         Authentication token. Requires scope: chat:write:bot
                             or chat:write:user
       --channel CHANNEL     Channel, private group, or IM channel to send message
