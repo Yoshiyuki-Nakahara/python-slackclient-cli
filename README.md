@@ -5,7 +5,7 @@ A command line interface for Slack
   https://api.slack.com/methods
 
 # Install
-  pip install slackclient-cli
+    pip install slackclient-cli
 
 # Usage
     slackclient-cli --help
