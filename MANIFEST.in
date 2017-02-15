@@ -1,6 +1,9 @@
 # Include the license file
-include requirements.txt
 include LICENSE
+include README.md
+
+# Include the module file
+include requirements.txt
 
 # Include the data files
 # recursive-include data *

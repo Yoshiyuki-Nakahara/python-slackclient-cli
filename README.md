@@ -19,6 +19,7 @@ A command line interface for Slack
 
     optional arguments:
       -h, --help            show this help message and exit
+      --version             show program's version number and exit
 
 # SubCommand Usage(ex. chat.postMessage)
     usage: slackclient-cli chat.postMessage -h
