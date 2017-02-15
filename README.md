@@ -1,5 +1,6 @@
 # python-slackclient-cli
 A command line interface for Slack
+[![PyPI version](https://badge.fury.io/py/slackclient-cli.svg)](https://badge.fury.io/py/slackclient-cli)
 
 # Reference
   https://api.slack.com/methods
