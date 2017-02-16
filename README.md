@@ -1,11 +1,11 @@
 # python-slackclient-cli
-A command line interface for Slack  
+A command line interface for Slack [slackclient](https://github.com/slackapi/python-slackclient) wrapper  
 [![PyPI version](https://badge.fury.io/py/slackclient-cli.svg)](https://badge.fury.io/py/slackclient-cli)
 
 # Reference
   https://api.slack.com/methods
 
-# Install
+# Installation
     pip install slackclient-cli
 
 # Usage
