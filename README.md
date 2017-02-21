@@ -1,5 +1,5 @@
 # python-slackclient-cli
-A command line interface for Slack API / [slackclient](https://github.com/slackapi/python-slackclient) wrapper
+A command line interface for Slack API / [slackclient](https://github.com/slackapi/python-slackclient) wrapper  
 [![Build Status](https://travis-ci.org/Yoshiyuki-Nakahara/python-slackclient-cli.svg?branch=master)](https://travis-ci.org/Yoshiyuki-Nakahara/python-slackclient-cli)
 [![PyPI version](https://badge.fury.io/py/slackclient-cli.svg)](https://badge.fury.io/py/slackclient-cli)
 ![Python Version](https://img.shields.io/badge/python-2.7-blue.svg)
