@@ -7,7 +7,7 @@ env_var_key_prefix = "SLACK_API_"
 arg_required_string = "Required"
 
 def _get_version():
-    version_txt_path = os.path.abspath(os.path.dirname(__file__)) + '/version.txt'
+    version_txt_path = os.path.abspath(os.path.dirname(__file__)) + '/__version__.txt'
     return open(version_txt_path).read().splitlines()[0]
 
 def parse_program_args():

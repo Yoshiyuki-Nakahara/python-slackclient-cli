@@ -21,7 +21,7 @@ def _get_requires():
     return open('requirements.txt').read().splitlines()
 
 def _get_version():
-    return open('slackclient_cli/version.txt').read().splitlines()[0]
+    return open('slackclient_cli/__version__.txt').read().splitlines()[0]
 
 setup(
     name='slackclient-cli',
@@ -101,7 +101,7 @@ setup(
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
     package_data={
-        'slackclient_cli': ['version.txt'],
+        'slackclient_cli': ['__version__.txt'],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
