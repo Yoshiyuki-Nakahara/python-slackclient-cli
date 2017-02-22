@@ -1,6 +1,5 @@
-import os, argparse, urllib, json
+import os, argparse, json
 from . import api_specific
-from datetime import datetime
 from slackclient import SlackClient
 
 env_var_key_prefix = "SLACK_API_"
