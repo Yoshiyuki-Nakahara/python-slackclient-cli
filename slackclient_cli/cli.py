@@ -28,7 +28,7 @@ def parse_program_args():
             # supplement by environment variable
             arg_name = p.pop("Argument")
             env_var_key = env_var_key_prefix + arg_name.upper()
-            if os.environ.has_key(env_var_key):
+            if env_var_key in os.environ:
                 p["default"] = os.environ[env_var_key]
                 p["required"] = False
 
@@ -38,7 +38,7 @@ def parse_program_args():
     method = method_args.pop("method")
     is_quiet = method_args.pop("is_quiet")
 
-    if method_args.has_key("file") and method_args["file"] is not None:
+    if "file" in method_args and method_args["file"] is not None:
         method_args["file"] = open(method_args["file"], 'rb')
 
     return is_quiet, method, method_args
@@ -49,7 +49,7 @@ def main():
     slack_client = SlackClient(slack_api_options["token"])
     res = slack_client.api_call(method, timeout = 1, **slack_api_options)
     if not is_quiet:
-        print json.dumps(res)
+        print(json.dumps(res))
 
 if __name__ == '__main__':
     main()

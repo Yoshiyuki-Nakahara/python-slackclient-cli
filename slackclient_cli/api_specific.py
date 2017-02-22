@@ -893,23 +893,6 @@ def get():
                 "Description": "Private channel to open."
             },
         ],
-        "groups.open" : [
-            {
-                "Argument": "token",
-                "Required": "Required",
-                "Description": "Authentication token. Requires scope: groups:write"
-            },
-            {
-                "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to rename."
-            },
-            {
-                "Argument": "name",
-                "Required": "Required",
-                "Description": "New name for private channel."
-            },
-        ],
         "groups.rename" : [
             {
                 "Argument": "token",
@@ -925,23 +908,6 @@ def get():
                 "Argument": "name",
                 "Required": "Required",
                 "Description": "New name for private channel."
-            },
-        ],
-        "groups.replies" : [
-            {
-                "Argument": "token",
-                "Required": "Required",
-                "Description": "Authentication token. Requires scope: groups:history"
-            },
-            {
-                "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to fetch thread from"
-            },
-            {
-                "Argument": "thread_ts",
-                "Required": "Required",
-                "Description": "Unique identifier of a thread's parent message"
             },
         ],
         "groups.replies" : [
