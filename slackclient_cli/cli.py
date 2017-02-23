@@ -1,13 +1,17 @@
-import os, argparse, json
+import os
+import argparse
+import json
 from . import api_specific
 from slackclient import SlackClient
 
 env_var_key_prefix = "SLACK_API_"
 arg_required_string = "Required"
 
+
 def _get_version():
     version_txt_path = os.path.abspath(os.path.dirname(__file__)) + '/__version__.txt'
     return open(version_txt_path).read().splitlines()[0]
+
 
 def parse_program_args():
     description = u"{0} [Args] [Options]\nDetailed options -h or --help".format(__file__)
@@ -42,13 +46,16 @@ def parse_program_args():
 
     return is_quiet, method, method_args
 
+
 def main():
     is_quiet, method, method_args = parse_program_args()
     slack_api_options = dict((k, v) for k, v in method_args.iteritems() if v)
     slack_client = SlackClient(slack_api_options["token"])
-    res = slack_client.api_call(method, timeout = 1, **slack_api_options)
+    timeout = 1
+    res = slack_client.api_call(method, timeout, **slack_api_options)
     if not is_quiet:
         print(json.dumps(res))
+
 
 if __name__ == '__main__':
     main()

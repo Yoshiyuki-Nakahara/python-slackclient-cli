@@ -1,9 +1,10 @@
 
+
 # If there is an API that understands the specification this code will be very short and it will dynamically change with specification change
 def get():
     return {
         # unavailable: slackclient needs token
-        # "api.test" : [
+        # "api.test": [
         #     {
         #         "Argument": "error",
         #         "Required": "Optional",
@@ -16,7 +17,7 @@ def get():
         #     },
         # ],
 
-        "auth.revoke" : [
+        "auth.revoke": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -28,7 +29,7 @@ def get():
                 "Description": "Setting this parameter to 1 triggers a testing mode where the specified token will not actually be revoked.",
             },
         ],
-        "auth.test" : [
+        "auth.test": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -36,7 +37,7 @@ def get():
             },
         ],
 
-        "bots.info" : [
+        "bots.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -49,7 +50,7 @@ def get():
             },
         ],
 
-        "channels.archive" : [
+        "channels.archive": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -61,7 +62,7 @@ def get():
                 "Description": "Channel to archive"
             },
         ],
-        "channels.create" : [
+        "channels.create": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -73,7 +74,7 @@ def get():
                 "Description": "Name of channel to create"
             },
         ],
-        "channels.history" : [
+        "channels.history": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -110,7 +111,7 @@ def get():
                 "Description": "Include unread_count_display in the output? default=0"
             },
         ],
-        "channels.info" : [
+        "channels.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -122,7 +123,7 @@ def get():
                 "Description": "Channel to get info on"
             },
         ],
-        "channels.invite" : [
+        "channels.invite": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -139,7 +140,7 @@ def get():
                 "Description": "User to invite to channel."
             },
         ],
-        "channels.join" : [
+        "channels.join": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -151,7 +152,7 @@ def get():
                 "Description": "Name of channel to join"
             },
         ],
-        "channels.kick" : [
+        "channels.kick": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -168,7 +169,7 @@ def get():
                 "Description": "User to remove from channel."
             },
         ],
-        "channels.leave" : [
+        "channels.leave": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -180,7 +181,7 @@ def get():
                 "Description": "Channel to leave"
             },
         ],
-        "channels.list" : [
+        "channels.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -192,7 +193,7 @@ def get():
                 "Description": "Don't return archived channels. default=false"
             },
         ],
-        "channels.mark" : [
+        "channels.mark": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -209,7 +210,7 @@ def get():
                 "Description": "Timestamp of the most recently seen message."
             },
         ],
-        "channels.rename" : [
+        "channels.rename": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -226,7 +227,7 @@ def get():
                 "Description": "New name for channel."
             },
         ],
-        "channels.replies" : [
+        "channels.replies": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -243,7 +244,7 @@ def get():
                 "Description": "Unique identifier of a thread's parent message"
             },
         ],
-        "channels.setPurpose" : [
+        "channels.setPurpose": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -260,7 +261,7 @@ def get():
                 "Description": "The new purpose"
             },
         ],
-        "channels.setTopic" : [
+        "channels.setTopic": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -277,7 +278,7 @@ def get():
                 "Description": "The new topic"
             },
         ],
-        "channels.unarchive" : [
+        "channels.unarchive": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -290,7 +291,7 @@ def get():
             },
         ],
 
-        "chat.delete" : [
+        "chat.delete": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -312,7 +313,7 @@ def get():
                 "Description": "Pass true to update the message as the authed user. Bot users in this context are considered authed users."
             },
         ],
-        "chat.meMessage" : [
+        "chat.meMessage": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -401,7 +402,7 @@ def get():
                 "Description": "Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false."
             },
         ],
-        "chat.update" : [
+        "chat.update": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -444,21 +445,21 @@ def get():
             },
         ],
 
-        "dnd.endDnd" : [
+        "dnd.endDnd": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: dnd:write"
             },
         ],
-        "dnd.endSnooze" : [
+        "dnd.endSnooze": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: dnd:write"
             },
         ],
-        "dnd.info" : [
+        "dnd.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -470,7 +471,7 @@ def get():
                 "Description": "User to fetch status for (defaults to current user)"
             },
         ],
-        "dnd.setSnooze" : [
+        "dnd.setSnooze": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -482,7 +483,7 @@ def get():
                 "Description": "Number of minutes, from now, to snooze until."
             },
         ],
-        "dnd.teamInfo" : [
+        "dnd.teamInfo": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -495,7 +496,7 @@ def get():
             },
         ],
 
-        "emoji.list" : [
+        "emoji.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -503,7 +504,7 @@ def get():
             },
         ],
 
-        "files.comments.add" : [
+        "files.comments.add": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -525,7 +526,7 @@ def get():
                 "Description": "Channel id (encoded) of which location to associate with the new comment."
             },
         ],
-        "files.comments.delete" : [
+        "files.comments.delete": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -542,7 +543,7 @@ def get():
                 "Description": "The comment to delete."
             },
         ],
-        "files.comments.edit" : [
+        "files.comments.edit": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -565,7 +566,7 @@ def get():
             },
         ],
 
-        "files.delete" : [
+        "files.delete": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -577,7 +578,7 @@ def get():
                 "Description": "ID of file to delete."
             },
         ],
-        "files.info" : [
+        "files.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -599,7 +600,7 @@ def get():
                 "Description": "Page number of results to return. default=1"
             },
         ],
-        "files.list" : [
+        "files.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -641,7 +642,7 @@ def get():
                 "Description": "Page number of results to return. default=1"
             },
         ],
-        "files.revokePublicURL" : [
+        "files.revokePublicURL": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -653,7 +654,7 @@ def get():
                 "Description": "File to revoke"
             },
         ],
-        "files.sharedPublicURL" : [
+        "files.sharedPublicURL": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -665,7 +666,7 @@ def get():
                 "Description": "File to share"
             },
         ],
-        "files.upload" : [
+        "files.upload": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -674,8 +675,8 @@ def get():
             {
                 "Argument": "file",
                 "Required": "Optional",
-    #            "Description": "File contents via multipart/form-data. If omitting this parameter, you must submit content."
                 "Description": "File name to be uploaded"
+                #            "Description": "File contents via multipart/form-data. If omitting this parameter, you must submit content."
             },
             {
                 "Argument": "content",
@@ -709,7 +710,7 @@ def get():
             },
         ],
 
-        "groups.archive" : [
+        "groups.archive": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -721,7 +722,7 @@ def get():
                 "Description": "Private channel to archive"
             },
         ],
-        "groups.close" : [
+        "groups.close": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -733,7 +734,7 @@ def get():
                 "Description": "Private channel to close."
             },
         ],
-        "groups.create" : [
+        "groups.create": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -745,7 +746,7 @@ def get():
                 "Description": "Name of private channel to creat"
             },
         ],
-        "groups.createChild" : [
+        "groups.createChild": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -757,7 +758,7 @@ def get():
                 "Description": "Private channel to clone and archive."
             },
         ],
-        "groups.history" : [
+        "groups.history": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -794,7 +795,7 @@ def get():
                 "Description": "Include unread_count_display in the output? default=0"
             },
         ],
-        "groups.info" : [
+        "groups.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -806,7 +807,7 @@ def get():
                 "Description": "Private channel to get info on"
             },
         ],
-        "groups.invite" : [
+        "groups.invite": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -823,7 +824,7 @@ def get():
                 "Description": "User to invite."
             },
         ],
-        "groups.kick" : [
+        "groups.kick": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -840,7 +841,7 @@ def get():
                 "Description": "User to remove from private channel."
             },
         ],
-        "groups.leave" : [
+        "groups.leave": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -852,7 +853,7 @@ def get():
                 "Description": "Private channel to leave"
             },
         ],
-        "groups.list" : [
+        "groups.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -864,7 +865,7 @@ def get():
                 "Description": "Don't return archived private channels. default=0"
             },
         ],
-        "groups.mark" : [
+        "groups.mark": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -881,7 +882,7 @@ def get():
                 "Description": "Timestamp of the most recently seen message."
             },
         ],
-        "groups.open" : [
+        "groups.open": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -893,7 +894,7 @@ def get():
                 "Description": "Private channel to open."
             },
         ],
-        "groups.rename" : [
+        "groups.rename": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -910,7 +911,7 @@ def get():
                 "Description": "New name for private channel."
             },
         ],
-        "groups.replies" : [
+        "groups.replies": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -927,7 +928,7 @@ def get():
                 "Description": "Unique identifier of a thread's parent message"
             },
         ],
-        "groups.setPurpose" : [
+        "groups.setPurpose": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -944,7 +945,7 @@ def get():
                 "Description": "The new purpose"
             },
         ],
-        "groups.setTopic" : [
+        "groups.setTopic": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -961,7 +962,7 @@ def get():
                 "Description": "The new topic"
             },
         ],
-        "groups.unarchive" : [
+        "groups.unarchive": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -974,7 +975,7 @@ def get():
             },
         ],
 
-        "im.close" : [
+        "im.close": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -986,7 +987,7 @@ def get():
                 "Description": "Direct message channel to close."
             },
         ],
-        "im.history" : [
+        "im.history": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1023,14 +1024,14 @@ def get():
                 "Description": "Include unread_count_display in the output? default=0"
             },
         ],
-        "im.list" : [
+        "im.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: im:read"
             },
         ],
-        "im.mark" : [
+        "im.mark": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1047,7 +1048,7 @@ def get():
                 "Description": "Timestamp of the most recently seen message."
             },
         ],
-        "im.open" : [
+        "im.open": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1064,7 +1065,7 @@ def get():
                 "Description": "Boolean, indicates you want the full IM channel definition in the response."
             },
         ],
-        "im.replies" : [
+        "im.replies": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1082,7 +1083,7 @@ def get():
             },
         ],
 
-        "mpim.close" : [
+        "mpim.close": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1094,7 +1095,7 @@ def get():
                 "Description": "MPIM to close."
             },
         ],
-        "mpim.history" : [
+        "mpim.history": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1131,14 +1132,14 @@ def get():
                 "Description": "Include unread_count_display in the output? default=0"
             },
         ],
-        "mpim.list" : [
+        "mpim.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: mpim:read"
             },
         ],
-        "mpim.mark" : [
+        "mpim.mark": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1155,7 +1156,7 @@ def get():
                 "Description": "Timestamp of the most recently seen message."
             },
         ],
-        "mpim.open" : [
+        "mpim.open": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1167,7 +1168,7 @@ def get():
                 "Description": "Comma separated lists of users. The ordering of the users is preserved whenever a MPIM group is returned."
             },
         ],
-        "mpim.replies" : [
+        "mpim.replies": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1185,7 +1186,7 @@ def get():
             },
         ],
 
-        "oauth.access" : [
+        "oauth.access": [
             {
                 "Argument": "client_id",
                 "Required": "Required",
@@ -1208,7 +1209,7 @@ def get():
             },
         ],
 
-        "pins.add" : [
+        "pins.add": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1235,7 +1236,7 @@ def get():
                 "Description": "Timestamp of the message to pin."
             },
         ],
-        "pins.list" : [
+        "pins.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1247,7 +1248,7 @@ def get():
                 "Description": "Channel to get pinned items for."
             },
         ],
-        "pins.remove" : [
+        "pins.remove": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1275,7 +1276,7 @@ def get():
             },
         ],
 
-        "reactions.add" : [
+        "reactions.add": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1307,7 +1308,7 @@ def get():
                 "Description": "Timestamp of the message to add reaction to."
             },
         ],
-        "reactions.get" : [
+        "reactions.get": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1339,7 +1340,7 @@ def get():
                 "Description": "If true always return the complete reaction list."
             },
         ],
-        "reactions.list" : [
+        "reactions.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1366,7 +1367,7 @@ def get():
                 "Description": "Page number of results to return. default=1"
             },
         ],
-        "reactions.remove" : [
+        "reactions.remove": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1399,7 +1400,7 @@ def get():
             },
         ],
 
-        "reminders.add" : [
+        "reminders.add": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1421,7 +1422,7 @@ def get():
                 "Description": "The user who will receive the reminder. If no user is specified, the reminder will go to user who created it."
             },
         ],
-        "reminders.complete" : [
+        "reminders.complete": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1433,7 +1434,7 @@ def get():
                 "Description": "The ID of the reminder to be marked as complet"
             },
         ],
-        "reminders.delete" : [
+        "reminders.delete": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1445,7 +1446,7 @@ def get():
                 "Description": "The ID of the reminder"
             },
         ],
-        "reminders.info" : [
+        "reminders.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1457,7 +1458,7 @@ def get():
                 "Description": "The ID of the reminder"
             },
         ],
-        "reminders.list" : [
+        "reminders.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1465,7 +1466,7 @@ def get():
             },
         ],
 
-        "search.all" : [
+        "search.all": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1502,7 +1503,7 @@ def get():
                 "Description": "Page number of results to return. default=1"
             },
         ],
-        "search.files" : [
+        "search.files": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1539,7 +1540,7 @@ def get():
                 "Description": "Page number of results to return. default=1"
             },
         ],
-        "search.messages" : [
+        "search.messages": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1577,7 +1578,7 @@ def get():
             },
         ],
 
-        "stars.add" : [
+        "stars.add": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1604,7 +1605,7 @@ def get():
                 "Description": "Timestamp of the message to add star to."
             },
         ],
-        "stars.list" : [
+        "stars.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1621,7 +1622,7 @@ def get():
                 "Description": "Page number of results to return. default=1"
             },
         ],
-        "stars.remove" : [
+        "stars.remove": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1649,7 +1650,7 @@ def get():
             },
         ],
 
-        "team.accessLogs" : [
+        "team.accessLogs": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1671,7 +1672,7 @@ def get():
                 "Description": "End of time range of logs to include in results (inclusive). default=now"
             },
         ],
-        "team.billableInfo" : [
+        "team.billableInfo": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1683,14 +1684,14 @@ def get():
                 "Description": "A user to retrieve the billable information for. Defaults to all users."
             },
         ],
-        "team.info" : [
+        "team.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: team:read"
             },
         ],
-        "team.integrationLogs" : [
+        "team.integrationLogs": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1728,7 +1729,7 @@ def get():
             },
         ],
 
-        "team.profile.get" : [
+        "team.profile.get": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1741,7 +1742,7 @@ def get():
             },
         ],
 
-        "usergroups.create" : [
+        "usergroups.create": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1773,7 +1774,7 @@ def get():
                 "Description": "Include the number of users in each User Group."
             },
         ],
-        "usergroups.disable" : [
+        "usergroups.disable": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1790,7 +1791,7 @@ def get():
                 "Description": "Include the number of users in the User Group."
             },
         ],
-        "usergroups.enable" : [
+        "usergroups.enable": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1807,7 +1808,7 @@ def get():
                 "Description": "Include the number of users in the User Group."
             },
         ],
-        "usergroups.list" : [
+        "usergroups.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1829,7 +1830,7 @@ def get():
                 "Description": "Include the list of users for each User Group."
             },
         ],
-        "usergroups.update" : [
+        "usergroups.update": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1867,7 +1868,7 @@ def get():
             },
         ],
 
-        "usergroups.users.list" : [
+        "usergroups.users.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1884,7 +1885,7 @@ def get():
                 "Description": "Allow results that involve disabled User Groups."
             },
         ],
-        "usergroups.users.update" : [
+        "usergroups.users.update": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1907,14 +1908,14 @@ def get():
             },
         ],
 
-        "users.deletePhoto" : [
+        "users.deletePhoto": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: users.profile:write"
             },
         ],
-        "users.getPresence" : [
+        "users.getPresence": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1926,14 +1927,14 @@ def get():
                 "Description": "User to get presence info on. Defaults to the authed user."
             },
         ],
-        "users.identity" : [
+        "users.identity": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: identity.basic"
             },
         ],
-        "users.info" : [
+        "users.info": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1945,7 +1946,7 @@ def get():
                 "Description": "User to get info on"
             },
         ],
-        "users.list" : [
+        "users.list": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1957,14 +1958,14 @@ def get():
                 "Description": "Whether to include presence data in the output"
             },
         ],
-        "users.setActive" : [
+        "users.setActive": [
             {
                 "Argument": "token",
                 "Required": "Required",
                 "Description": "Authentication token. Requires scope: users:write"
             },
         ],
-        "users.setPhoto" : [
+        "users.setPhoto": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -1991,7 +1992,7 @@ def get():
                 "Description": "Width/height of crop box (always square)"
             },
         ],
-        "users.setPresence" : [
+        "users.setPresence": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -2004,7 +2005,7 @@ def get():
             },
         ],
 
-        "users.profile.get" : [
+        "users.profile.get": [
             {
                 "Argument": "token",
                 "Required": "Required",
@@ -2021,7 +2022,7 @@ def get():
                 "Description": "Include labels for each ID in custom profile fields. default=false"
             },
         ],
-        "users.profile.set" : [
+        "users.profile.set": [
             {
                 "Argument": "token",
                 "Required": "Required",

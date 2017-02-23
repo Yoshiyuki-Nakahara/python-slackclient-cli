@@ -17,11 +17,14 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+
 def _get_requires():
     return open('requirements.txt').read().splitlines()
 
+
 def _get_version():
     return open('slackclient_cli/__version__.txt').read().splitlines()[0]
+
 
 setup(
     name='slackclient-cli',
