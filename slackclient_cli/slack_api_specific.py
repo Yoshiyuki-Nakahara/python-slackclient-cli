@@ -58,8 +58,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to archive"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to archive"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to archive"
             },
         ],
         "channels.create": [
@@ -82,8 +89,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to fetch history for."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to fetch history for."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to fetch history for."
             },
             {
                 "Argument": "latest",
@@ -119,8 +133,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to get info on"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to get info on"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to get info on"
             },
         ],
         "channels.invite": [
@@ -131,13 +152,26 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to invite user to."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to invite user to."
+            },
+            {
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to invite user to."
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to invite to channel."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to invite to channel."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to invite to channel."
             },
         ],
         "channels.join": [
@@ -160,13 +194,27 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to remove user from."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to remove user from."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to remove user from."
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to remove from channel."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to remove from channel."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to remove from channel."
             },
         ],
         "channels.leave": [
@@ -177,8 +225,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to leave"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to leave"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to leave"
             },
         ],
         "channels.list": [
@@ -201,8 +256,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to set reading cursor in."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to set reading cursor in."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to set reading cursor in."
             },
             {
                 "Argument": "ts",
@@ -218,8 +280,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to rename"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to rename"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to rename"
             },
             {
                 "Argument": "name",
@@ -235,8 +304,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to fetch thread from"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to fetch thread from"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to fetch thread from"
             },
             {
                 "Argument": "thread_ts",
@@ -252,8 +328,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to set the purpose of"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to set the purpose of"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to set the purpose of"
             },
             {
                 "Argument": "purpose",
@@ -269,8 +352,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to set the topic of"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to set the topic of"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to set the topic of"
             },
             {
                 "Argument": "topic",
@@ -286,8 +376,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to unarchive"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to unarchive"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to unarchive"
             },
         ],
 
@@ -304,8 +401,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel containing the message to be updated."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID containing the message to be updated."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name containing the message to be updated."
             },
             {
                 "Argument": "as_user",
@@ -415,8 +519,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel containing the message to be updated."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID containing the message to be updated."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name containing the message to be updated."
             },
             {
                 "Argument": "text",
@@ -468,7 +579,13 @@ def get():
             {
                 "Argument": "user",
                 "Required": "Optional",
-                "Description": "User to fetch status for (defaults to current user)"
+                "Description": "User ID to fetch status for (defaults to current user)"
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to fetch status for (defaults to current user)"
             },
         ],
         "dnd.setSnooze": [
@@ -492,7 +609,13 @@ def get():
             {
                 "Argument": "users",
                 "Required": "Optional",
-                "Description": "Comma-separated list of users to fetch Do Not Disturb status for"
+                "Description": "Comma-separated list of user IDs to fetch Do Not Disturb status for"
+            },
+            {
+                "extra_function": "user_names_to_ids",
+                "Argument": "ex-users",
+                "Required": "Optional",
+                "Description": "Comma-separated list of user names to fetch Do Not Disturb status for"
             },
         ],
 
@@ -524,6 +647,12 @@ def get():
                 "Argument": "channel",
                 "Required": "Optional",
                 "Description": "Channel id (encoded) of which location to associate with the new comment."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name of which location to associate with the new comment."
             },
         ],
         "files.comments.delete": [
@@ -607,14 +736,26 @@ def get():
                 "Description": "Authentication token.Requires scope: files:read"
             },
             {
-                "Argument": "users",
+                "Argument": "user",
                 "Required": "Optional",
-                "Description": "Filter files created by a single user."
+                "Description": "Filter files created by a single user ID."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "Filter files created by a single user name."
             },
             {
                 "Argument": "channel",
                 "Required": "Optional",
                 "Description": "Filter files appearing in a specific channel, indicated by its ID."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Filter files appearing in a specific channel, indicated by its name."
             },
             {
                 "Argument": "ts_from",
@@ -675,13 +816,18 @@ def get():
             {
                 "Argument": "file",
                 "Required": "Optional",
-                "Description": "File name to be uploaded"
-                #            "Description": "File contents via multipart/form-data. If omitting this parameter, you must submit content."
+                "Description": "File contents via multipart/form-data. If omitting this parameter, you must submit content."
             },
             {
                 "Argument": "content",
                 "Required": "Optional",
                 "Description": "File contents via a POST variable. If omitting this parameter, you must provide a file."
+            },
+            {
+                "extra_function": "file_upload_by_filename",
+                "Argument": "ex-content",
+                "Required": "Optional",
+                "Description": "File name to be uploaded. This is a proprietary option, and the content of the file is included in the 'content' argument"
             },
             {
                 "Argument": "filetype",
@@ -708,6 +854,12 @@ def get():
                 "Required": "Optional",
                 "Description": "Comma-separated list of channel names or IDs where the file will be shared."
             },
+            {
+                "extra_function": "channel_names_to_ids",
+                "Argument": "ex-channels",
+                "Required": "Optional",
+                "Description": "Comma-separated list of channel names or IDs where the file will be shared."
+            },
         ],
 
         "groups.archive": [
@@ -718,8 +870,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to archive"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to archive"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to archive"
             },
         ],
         "groups.close": [
@@ -730,8 +889,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to close."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to close."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to close."
             },
         ],
         "groups.create": [
@@ -754,8 +920,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to clone and archive."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to clone and archive."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to clone and archive."
             },
         ],
         "groups.history": [
@@ -766,8 +939,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to fetch history for."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to fetch history for."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to fetch history for."
             },
             {
                 "Argument": "latest",
@@ -803,8 +983,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to get info on"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to get info on"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to get info on"
             },
         ],
         "groups.invite": [
@@ -815,13 +1002,27 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to invite user to."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to invite user to."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to invite user to."
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to invite."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to invite."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to invite."
             },
         ],
         "groups.kick": [
@@ -832,13 +1033,27 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to remove user from."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to remove user from."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to remove user from."
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to remove from private channel."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to remove from private channel."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to remove from private channel."
             },
         ],
         "groups.leave": [
@@ -849,8 +1064,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to leave"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to leave"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to leave"
             },
         ],
         "groups.list": [
@@ -873,8 +1095,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to set reading cursor in."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to set reading cursor in."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to set reading cursor in."
             },
             {
                 "Argument": "ts",
@@ -890,8 +1119,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to open."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to open."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to open."
             },
         ],
         "groups.rename": [
@@ -902,8 +1138,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to rename."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to rename."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to rename."
             },
             {
                 "Argument": "name",
@@ -919,8 +1162,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to fetch thread from"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to fetch thread from"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to fetch thread from"
             },
             {
                 "Argument": "thread_ts",
@@ -936,8 +1186,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to set the purpose of"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to set the purpose of"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to set the purpose of"
             },
             {
                 "Argument": "purpose",
@@ -953,8 +1210,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to set the topic of"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to set the topic of"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to set the topic of"
             },
             {
                 "Argument": "topic",
@@ -970,8 +1234,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Private channel to unarchive"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Private channel ID to unarchive"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Private channel name to unarchive"
             },
         ],
 
@@ -983,8 +1254,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Direct message channel to close."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Direct message channel ID to close."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Direct message channel name to close."
             },
         ],
         "im.history": [
@@ -995,8 +1273,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Direct message channel to fetch history for."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Direct message channel ID to fetch history for."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Direct message channel name to fetch history for."
             },
             {
                 "Argument": "latest",
@@ -1039,8 +1324,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Direct message channel to set reading cursor in"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Direct message channel ID to set reading cursor in"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Direct message channel name to set reading cursor in"
             },
             {
                 "Argument": "ts",
@@ -1056,8 +1348,15 @@ def get():
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to open a direct message channel with."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to open a direct message channel with."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to open a direct message channel with."
             },
             {
                 "Argument": "return_im",
@@ -1073,8 +1372,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Direct message channel to fetch thread from"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Direct message channel ID to fetch thread from"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Direct message channel name to fetch thread from"
             },
             {
                 "Argument": "thread_ts",
@@ -1091,8 +1397,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
+                # "Required": "Required",
+                "Required": "Optional",
                 "Description": "MPIM to close."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "MPIM channel name to close."
             },
         ],
         "mpim.history": [
@@ -1103,8 +1416,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Multiparty direct message to fetch history for."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Multiparty direct message (channel id) to fetch history for."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Multiparty direct message (channel name) to fetch history for."
             },
             {
                 "Argument": "latest",
@@ -1147,8 +1467,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "multiparty direct message channel to set reading cursor in."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "multiparty direct message channel ID to set reading cursor in."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "multiparty direct message channel name to set reading cursor in."
             },
             {
                 "Argument": "ts",
@@ -1164,8 +1491,15 @@ def get():
             },
             {
                 "Argument": "users",
-                "Required": "Required",
-                "Description": "Comma separated lists of users. The ordering of the users is preserved whenever a MPIM group is returned."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Comma separated lists of user IDs. The ordering of the users is preserved whenever a MPIM group is returned."
+            },
+            {
+                "extra_function": "user_names_to_ids",
+                "Argument": "ex-users",
+                "Required": "Optional",
+                "Description": "Comma separated lists of user names. The ordering of the users is preserved whenever a MPIM group is returned."
             },
         ],
         "mpim.replies": [
@@ -1176,8 +1510,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Multiparty direct message channel to fetch thread from."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Multiparty direct message channel ID to fetch thread from."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Multiparty direct message channel name to fetch thread from."
             },
             {
                 "Argument": "thread_ts",
@@ -1217,8 +1558,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to pin the item in."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to pin the item in."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to pin the item in."
             },
             {
                 "Argument": "file",
@@ -1244,8 +1592,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel to get pinned items for."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID to get pinned items for."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to get pinned items for."
             },
         ],
         "pins.remove": [
@@ -1256,8 +1611,15 @@ def get():
             },
             {
                 "Argument": "channel",
-                "Required": "Required",
-                "Description": "Channel where the item is pinned to."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "Channel ID where the item is pinned to."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name where the item is pinned to."
             },
             {
                 "Argument": "file",
@@ -1300,7 +1662,13 @@ def get():
             {
                 "Argument": "channel",
                 "Required": "Optional",
-                "Description": "Channel where the message to add reaction to was posted."
+                "Description": "Channel ID where the message to add reaction to was posted."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name where the message to add reaction to was posted."
             },
             {
                 "Argument": "timestamp",
@@ -1327,7 +1695,13 @@ def get():
             {
                 "Argument": "channel",
                 "Required": "Optional",
-                "Description": "Channel where the message to get reactions for was posted."
+                "Description": "Channel ID where the message to get reactions for was posted."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name where the message to get reactions for was posted."
             },
             {
                 "Argument": "timestamp",
@@ -1349,7 +1723,13 @@ def get():
             {
                 "Argument": "user",
                 "Required": "Optional",
-                "Description": "Show reactions made by this user. Defaults to the authed user."
+                "Description": "Show reactions made by this user ID. Defaults to the authed user."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "Show reactions made by this user name."
             },
             {
                 "Argument": "full",
@@ -1391,7 +1771,13 @@ def get():
             {
                 "Argument": "channel",
                 "Required": "Optional",
-                "Description": "Channel where the message to remove reaction from was posted."
+                "Description": "Channel ID where the message to remove reaction from was posted."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name where the message to remove reaction from was posted."
             },
             {
                 "Argument": "timestamp",
@@ -1419,7 +1805,13 @@ def get():
             {
                 "Argument": "user",
                 "Required": "Optional",
-                "Description": "The user who will receive the reminder. If no user is specified, the reminder will go to user who created it."
+                "Description": "The user ID who will receive the reminder. If no user is specified, the reminder will go to user who created it."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "The user name who will receive the reminder."
             },
         ],
         "reminders.complete": [
@@ -1597,7 +1989,13 @@ def get():
             {
                 "Argument": "channel",
                 "Required": "Optional",
-                "Description": "Channel to add star to, or channel where the message to add star to was posted (used with timestamp)"
+                "Description": "Channel ID to add star to, or channel where the message to add star to was posted (used with timestamp)"
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to add star to, or channel where the message to add star to was posted (used with timestamp)"
             },
             {
                 "Argument": "timestamp",
@@ -1641,7 +2039,13 @@ def get():
             {
                 "Argument": "channel",
                 "Required": "Optional",
-                "Description": "Channel to remove star from, or channel where the message to remove star from was posted (used with timestamp)."
+                "Description": "Channel ID to remove star from, or channel where the message to remove star from was posted (used with timestamp)."
+            },
+            {
+                "extra_function": "channel_name_to_id",
+                "Argument": "ex-channel",
+                "Required": "Optional",
+                "Description": "Channel name to remove star from, or channel where the message to remove star from was posted (used with timestamp)."
             },
             {
                 "Argument": "timestamp",
@@ -1681,7 +2085,13 @@ def get():
             {
                 "Argument": "user",
                 "Required": "Optional",
-                "Description": "A user to retrieve the billable information for. Defaults to all users."
+                "Description": "A user ID to retrieve the billable information for. Defaults to all users."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "A user name to retrieve the billable information for."
             },
         ],
         "team.info": [
@@ -1710,7 +2120,13 @@ def get():
             {
                 "Argument": "user",
                 "Required": "Optional",
-                "Description": "Filter logs generated by this user's actions. Defaults to all logs."
+                "Description": "Filter logs generated by this user's (ID) actions. Defaults to all logs."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "Filter logs generated by this user's (name) actions. Defaults to all logs."
             },
             {
                 "Argument": "change_type",
@@ -1767,6 +2183,12 @@ def get():
                 "Argument": "channels",
                 "Required": "Optional",
                 "Description": "A comma separated string of encoded channel IDs for which the User Group uses as a default."
+            },
+            {
+                "extra_function": "channel_names_to_ids",
+                "Argument": "ex-channels",
+                "Required": "Optional",
+                "Description": "A comma separated string of channel names for which the User Group uses as a default."
             },
             {
                 "Argument": "include_count",
@@ -1862,6 +2284,12 @@ def get():
                 "Description": "A comma separated string of encoded channel IDs for which the User Group uses as a default."
             },
             {
+                "extra_function": "channel_names_to_ids",
+                "Argument": "ex-channels",
+                "Required": "Optional",
+                "Description": "A comma separated string of channel names for which the User Group uses as a default."
+            },
+            {
                 "Argument": "include_count",
                 "Required": "Optional",
                 "Description": "Include the number of users in the User Group."
@@ -1898,8 +2326,15 @@ def get():
             },
             {
                 "Argument": "users",
-                "Required": "Required",
+                # "Required": "Required",
+                "Required": "Optional",
                 "Description": "A comma separated string of encoded user IDs that represent the entire list of users for the User Group."
+            },
+            {
+                "extra_function": "user_names_to_ids",
+                "Argument": "ex-users",
+                "Required": "Optional",
+                "Description": "A comma separated string of user names that represent the entire list of users for the User Group."
             },
             {
                 "Argument": "include_count",
@@ -1923,8 +2358,15 @@ def get():
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to get presence info on. Defaults to the authed user."
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to get presence info on. Defaults to the authed user."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to get presence info on. Defaults to the authed user."
             },
         ],
         "users.identity": [
@@ -1942,8 +2384,15 @@ def get():
             },
             {
                 "Argument": "user",
-                "Required": "Required",
-                "Description": "User to get info on"
+                # "Required": "Required",
+                "Required": "Optional",
+                "Description": "User ID to get info on"
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to get info on"
             },
         ],
         "users.list": [
@@ -2014,7 +2463,13 @@ def get():
             {
                 "Argument": "user",
                 "Required": "Optional",
-                "Description": "User to retrieve profile info for"
+                "Description": "User ID to retrieve profile info for"
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "User name to retrieve profile info for"
             },
             {
                 "Argument": "include_labels",
@@ -2032,6 +2487,12 @@ def get():
                 "Argument": "user",
                 "Required": "Optional",
                 "Description": "ID of user to change. This argument may only be specified by team admins on paid teams."
+            },
+            {
+                "extra_function": "user_name_to_id",
+                "Argument": "ex-user",
+                "Required": "Optional",
+                "Description": "name of user to change. This argument may only be specified by team admins on paid teams."
             },
             {
                 "Argument": "profile",
